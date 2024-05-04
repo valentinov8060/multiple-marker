@@ -1,0 +1,12 @@
+{
+  "liveServer.settings.port": 5500,
+  "liveServer.settings.root": "/",
+  "liveServer.settings.CustomBrowser": "chrome",
+  "liveServer.settings.useLocalIp": true,
+  "liveServer.settings.https": {
+    "enable": true, //set it true to enable the feature.
+    "cert": "D:\\Project\\AR-master\\AR-master\\https\\localhost.pem", //full path
+    "key": "D:\\Project\\AR-master\\AR-master\\https\\localhost.key", //full path
+    "passphrase": "https"
+  },
+}
