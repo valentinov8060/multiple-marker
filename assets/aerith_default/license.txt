@@ -1,0 +1,11 @@
+Model Information:
+* title:	Aerith Default
+* source:	https://sketchfab.com/3d-models/aerith-default-9e0f7fe57386466cb34959ab4f7eb4c5
+* author:	mega mix (https://sketchfab.com/oscar3dmodel)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Aerith Default" (https://sketchfab.com/3d-models/aerith-default-9e0f7fe57386466cb34959ab4f7eb4c5) by mega mix (https://sketchfab.com/oscar3dmodel) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
