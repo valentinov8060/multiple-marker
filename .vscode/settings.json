@@ -5,8 +5,8 @@
   "liveServer.settings.useLocalIp": true,
   "liveServer.settings.https": {
     "enable": true, //set it true to enable the feature.
-    "cert": "D:\\Project\\AR-master\\AR-master\\https\\localhost.pem", //full path
-    "key": "D:\\Project\\AR-master\\AR-master\\https\\localhost.key", //full path
+    "cert": "D:\\Project\\multiple-marker\\https\\localhost.pem", //full path
+    "key": "D:\\Project\\multiple-marker\\https\\localhost.key", //full path
     "passphrase": "https"
   },
 }
