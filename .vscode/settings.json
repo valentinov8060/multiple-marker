@@ -5,8 +5,8 @@
   "liveServer.settings.useLocalIp": true,
   "liveServer.settings.https": {
     "enable": true, //set it true to enable the feature.
-    "cert": "D:\\Project\\multiple-marker\\https\\localhost.pem", //full path
-    "key": "D:\\Project\\multiple-marker\\https\\localhost.key", //full path
+    "cert": "D:\\Project\\augmented-reality\\https\\localhost.pem", //full path
+    "key": "D:\\Project\\augmented-reality\\https\\localhost.key", //full path
     "passphrase": "https"
   },
 }
