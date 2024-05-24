@@ -1,24 +1,25 @@
-
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>image-tracking: girl theme</title>
+
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.0.0/dist/aframe-extras.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
   </head>
   <body>
-    <a-scene mindar-image="imageTargetSrc: ./target/image/targets.mind; maxTrack: 10" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+    <a-scene mindar-image="imageTargetSrc: ./assets/target/targets.mind; maxTrack: 10" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       <a-assets>
-        <a-asset-item id="aerithModel" src="assets/aerith_default/scene.gltf"></a-asset-item>
-        <a-asset-item id="anime-girlModel" src="assets/anime_girl_tech-priest__umm_warhammer_40000/scene.gltf"></a-asset-item>
-        <a-asset-item id="blue-archiveModel" src="assets/blue_archivekasumizawa_miyu/scene.gltf"></a-asset-item>
-        <a-asset-item id="cyber-girlModel" src="assets/cyber_girl/scene.gltf"></a-asset-item>
-        <a-asset-item id="dancing-girlModel" src="assets/dancing_girl_from_fire_emblem_if/scene.gltf"></a-asset-item>
-        <a-asset-item id="elf-girlModel" src="assets/elf_girl/scene.gltf"></a-asset-item>
-        <a-asset-item id="lightningModel" src="assets/lightning_-_white_mage/scene.gltf"></a-asset-item>
-        <a-asset-item id="miyuModel" src="assets/miyu/scene.gltf"></a-asset-item>
-        <a-asset-item id="scifi-girlModel" src="assets/scifi_girl_v.01/scene.gltf"></a-asset-item>
-        <a-asset-item id="tifaModel" src="assets/tifa_-_itadaki_street_special/scene.gltf"></a-asset-item>
+        <a-asset-item id="aerithModel" src="assets/3D Model/aerith_default/scene.gltf"></a-asset-item>
+        <a-asset-item id="anime-girlModel" src="assets/3D Model/anime_girl_tech-priest__umm_warhammer_40000/scene.gltf"></a-asset-item>
+        <a-asset-item id="blue-archiveModel" src="assets/3D Model/blue_archivekasumizawa_miyu/scene.gltf"></a-asset-item>
+        <a-asset-item id="cyber-girlModel" src="assets/3D Model/cyber_girl/scene.gltf"></a-asset-item>
+        <a-asset-item id="dancing-girlModel" src="assets/3D Model/dancing_girl_from_fire_emblem_if/scene.gltf"></a-asset-item>
+        <a-asset-item id="elf-girlModel" src="assets/3D Model/elf_girl/scene.gltf"></a-asset-item>
+        <a-asset-item id="lightningModel" src="assets/3D Model/lightning_-_white_mage/scene.gltf"></a-asset-item>
+        <a-asset-item id="miyuModel" src="assets/3D Model/miyu/scene.gltf"></a-asset-item>
+        <a-asset-item id="scifi-girlModel" src="assets/3D Model/scifi_girl_v.01/scene.gltf"></a-asset-item>
+        <a-asset-item id="tifaModel" src="assets/3D Model/tifa_-_itadaki_street_special/scene.gltf"></a-asset-item>
       </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
