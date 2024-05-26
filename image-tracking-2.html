@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="./assets/images/title-icon.png" type="image/x-icon">
+    <title>augmented reality: FF VII</title>
+    <link rel="stylesheet" href="reset.css">
+
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const setSelected = (button, buttonList) => {
+          buttonList.forEach((e) => {
+            if (e.classList.contains('selected')) {
+              e.classList.remove("selected");
+            }
+          })
+          if (button.classList.contains('selected')) {
+            button.classList.remove("selected");
+          } else {
+            button.classList.add("selected");
+          }
+        }
+        const body = document.querySelector("body");
+        const backgroundList = document.querySelector(".background-list").children;
+        const buttonList = document.querySelectorAll(".button");
+
+        body.addEventListener('click', (e) => {
+          const clickedElement = event.target;
+          const button = clickedElement.closest('.button');
+          if (button) {
+            setSelected(button, buttonList);
+            for (let i = 0; i < backgroundList.length; i++) {
+              if (backgroundList[i].classList.contains('selected')) {
+                const background = backgroundList[i].getAttribute('id')
+                const backgroundEntity = document.querySelectorAll(".background-entity");
+                backgroundEntity.forEach(e => {
+                  e.setAttribute("src", "#" + background + "-image");
+                })
+                console.log(backgroundEntity[0], backgroundEntity[1]);
+              }
+            }
+          }
+        });
+
+        const modelCaption = document.querySelector(".model-caption");
+        document.querySelectorAll('[mindar-image-target]').forEach((target, index) => {
+          target.addEventListener('targetFound', () => {
+            const modelName = target.children[1].getAttribute('src');
+            console.log('model found: ' + modelName);
+            modelCaption.textContent = `Model Name: ${modelName}`
+          });
+
+          target.addEventListener('targetLost', () => {
+            console.log('target lost');
+            modelCaption.textContent = ''
+          });
+        });
+
+      })
+    </script>
+    <style>
+      body {
+        margin: 0;
+      }
+      .main-container {
+        overflow: hidden;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+      .background-list {
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 4;
+      }
+      .background-list .button {
+        border: solid 2px;
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        cursor: pointer;
+      }
+      .background-list img.selected {
+        border-color: green;
+      }
+      .model-caption {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+
+        width: 400px;
+        height: 50px;
+        text-align: center;
+        background-color: white;
+        color: black;
+        border: 3px solid red;
+      }
+    </style>
+</head>
+
+<body>
+  <div class="main-container">
+    <div class="background-list">
+      <img id="background-1" src="./assets/background/background-1.jpg" class="button selected">
+      <img id="background-2" src="./assets/background/background-2.jpg" class="button ">
+    </div>
+    <div class="model-caption">
+    </div>
+  </div>
+
+
+  <a-scene mindar-image="imageTargetSrc: ./assets/target/targets-2.mind; autoStart: true;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+    <a-assets>
+      <a-asset-item id="aerithModel" src="./assets/3D Model/aerith_default/scene.gltf"></a-asset-item>
+      <a-asset-item id="anime-girlModel" src="./assets/3D Model/anime_girl_tech-priest__umm_warhammer_40000/scene.gltf"></a-asset-item>
+      <a-asset-item id="blue-archiveModel" src="./assets/3D Model/blue_archivekasumizawa_miyu/scene.gltf"></a-asset-item>
+      <a-asset-item id="cyber-girlModel" src="./assets/3D Model/cyber_girl/scene.gltf"></a-asset-item>
+      <a-asset-item id="dancing-girlModel" src="./assets/3D Model/dancing_girl_from_fire_emblem_if/scene.gltf"></a-asset-item>
+      <a-asset-item id="elf-girlModel" src="./assets/3D Model/elf_girl/scene.gltf"></a-asset-item>
+      <a-asset-item id="lightningModel" src="./assets/3D Model/lightning_-_white_mage/scene.gltf"></a-asset-item>
+      <a-asset-item id="miyuModel" src="./assets/3D Model/miyu/scene.gltf"></a-asset-item>
+      <a-asset-item id="scifi-girlModel" src="./assets/3D Model/scifi_girl_v.01/scene.gltf"></a-asset-item>
+      <a-asset-item id="tifaModel" src="./assets/3D Model/tifa_-_itadaki_street_special/scene.gltf"></a-asset-item>
+
+      <img id="background-1-image" src="./assets/background/background-1.jpg">
+      <img id="background-2-image" src="./assets/background/background-2.jpg">
+    </a-assets>
+  
+    <a-camera position="0 0 0"></a-camera>
+  
+    <a-entity mindar-image-target="targetIndex: 0">
+      <a-image position="0 .5 0" rotation="0 0 0" width="1" height="1" src="#background-1-image" class="background-entity"></a-image>
+      <a-gltf-model rotation="0 0 0" position="0 0 0" scale="20 20 20" src="#aerithModel"></a-gltf-model>
+    </a-entity>
+    <a-entity mindar-image-target="targetIndex: 1">
+      <a-image position="0 .5 0" rotation="0 0 0" width="1" height="1" src="#background-1-image" class="background-entity"></a-image>
+      <a-gltf-model rotation="0 0 0" position="0 0 0" scale="0.05 0.05 0.05" src="#anime-girlModel"></a-gltf-model>
+    </a-entity>
+    <a-entity mindar-image-target="targetIndex: 2">
+      <a-image position="0 .5 0" rotation="0 0 0" width="1" height="1" src="#background-1-image" class="background-entity"></a-image>
+      <a-gltf-model rotation="0 0 0" position="0 0 0" scale="0.2 0.2 0.2" src="#blue-archiveModel"></a-gltf-model>
+    </a-entity>
+    <a-entity mindar-image-target="targetIndex: 3">
+      <a-image position="0 .5 0" rotation="0 0 0" width="1" height="1" src="#background-1-image" class="background-entity"></a-image>
+      <a-gltf-model rotation="0 0 0" position="-0.1 0 0" scale="0.15 0.15 0.15" src="#cyber-girlModel"></a-gltf-model>
+    </a-entity>
+    <a-entity mindar-image-target="targetIndex: 4">
+      <a-image position="0 .5 0" rotation="0 0 0" width="1" height="1" src="#background-1-image" class="background-entity"></a-image>
+      <a-gltf-model rotation="0 0 0" position="0 0 0" scale="0.15 0.15 0.15" src="#dancing-girlModel"></a-gltf-model>
+    </a-entity>
+    <a-entity mindar-image-target="targetIndex: 5">
+      <a-image position="0 .5 0" rotation="0 0 0" width="1" height="1" src="#background-1-image" class="background-entity"></a-image>
+      <a-gltf-model rotation="0 45 0" position="0 0 0" scale="0.0039 0.0039 0.0039" src="#elf-girlModel"></a-gltf-model>
+    </a-entity>
+    <a-entity mindar-image-target="targetIndex: 6">
+      <a-image position="0 .5 0" rotation="0 0 0" width="1" height="1" src="#background-1-image" class="background-entity"></a-image>
+      <a-gltf-model rotation="0 0 0" position="0 0 0" scale="15 15 15" src="#lightningModel"></a-gltf-model>
+    </a-entity>
+    <a-entity mindar-image-target="targetIndex: 7">
+      <a-image position="0 .5 0" rotation="0 0 0" width="1" height="1" src="#background-1-image" class="background-entity"></a-image>
+      <a-gltf-model rotation="0 0 0" position="0 0 0" scale="0.09 0.09 0.09" src="#miyuModel"></a-gltf-model>
+    </a-entity>
+    <a-entity mindar-image-target="targetIndex: 8">
+      <a-image position="0 .5 0" rotation="0 0 0" width="1" height="1" src="#background-1-image" class="background-entity"></a-image>
+      <a-gltf-model rotation="0 -90 0" position="0 0 0" scale="0.18 0.18 0.18" src="#scifi-girlModel"></a-gltf-model>
+    </a-entity>
+    <a-entity mindar-image-target="targetIndex: 9">
+      <a-image position="0 .5 0" rotation="0 0 0" width="1" height="1" src="#background-1-image" class="background-entity"></a-image>
+      <a-gltf-model rotation="0 0 0" position="0 0 0" scale="0.0008 0.0008 0.0008" src="#tifaModel"></a-gltf-model>
+    </a-entity>
+  </a-scene>
+</body>
+</html>
