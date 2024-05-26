@@ -3,8 +3,8 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="./assets/images/title-icon.png" type="image/x-icon">
-    <title>augmented reality: FF VII</title>
-    <link rel="stylesheet" href="reset.css">
+    <title>image-tracking-2: girl theme</title>
+    <link rel="stylesheet" href="assets/css reset/reset.css">
 
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
@@ -25,13 +25,13 @@
         }
         const body = document.querySelector("body");
         const backgroundList = document.querySelector(".background-list").children;
-        const buttonList = document.querySelectorAll(".button");
+        const buttonBackgroundList = document.querySelectorAll(".button-background");
 
         body.addEventListener('click', (e) => {
           const clickedElement = event.target;
-          const button = clickedElement.closest('.button');
+          const button = clickedElement.closest('.button-background');
           if (button) {
-            setSelected(button, buttonList);
+            setSelected(button, buttonBackgroundList);
             for (let i = 0; i < backgroundList.length; i++) {
               if (backgroundList[i].classList.contains('selected')) {
                 const background = backgroundList[i].getAttribute('id')
@@ -39,7 +39,6 @@
                 backgroundEntity.forEach(e => {
                   e.setAttribute("src", "#" + background + "-image");
                 })
-                console.log(backgroundEntity[0], backgroundEntity[1]);
               }
             }
           }
@@ -52,13 +51,11 @@
             console.log('model found: ' + modelName);
             modelCaption.textContent = `Model Name: ${modelName}`
           });
-
           target.addEventListener('targetLost', () => {
             console.log('target lost');
             modelCaption.textContent = ''
           });
         });
-
       })
     </script>
     <style>
@@ -77,7 +74,7 @@
         top: 0;
         z-index: 4;
       }
-      .background-list .button {
+      .background-list .button-background {
         border: solid 2px;
         width: 50px;
         height: 50px;
@@ -92,7 +89,7 @@
         left: 0;
         bottom: 0;
 
-        width: 400px;
+        width: 50vw;
         height: 50px;
         text-align: center;
         background-color: white;
@@ -105,8 +102,8 @@
 <body>
   <div class="main-container">
     <div class="background-list">
-      <img id="background-1" src="./assets/background/background-1.jpg" class="button selected">
-      <img id="background-2" src="./assets/background/background-2.jpg" class="button ">
+      <img id="background-1" src="./assets/background/background-1.jpg" class="button-background selected">
+      <img id="background-2" src="./assets/background/background-2.jpg" class="button-background ">
     </div>
     <div class="model-caption">
     </div>
