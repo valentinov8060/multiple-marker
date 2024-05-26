@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="./assets/images/title-icon.png" type="image/x-icon">
+    <link rel="icon" href="./assets/icon/title-icon.png" type="image/x-icon">
     <title>image-tracking-2: girl theme</title>
     <link rel="stylesheet" href="assets/css reset/reset.css">
 
@@ -93,14 +93,31 @@
         color: black;
         border: 3px solid red;
       }
+      .back-button {
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 4;
+        cursor: pointer;
+      }
+      .back-button-icon {
+        width: 50px;
+        height: 50px;
+      }
     </style>
 </head>
 
 <body>
+  <audio id="backgroundMusic" src="./assets/backsound/Main Theme Of Final Fantasy Vii (final Fantasy Vii).mp3" autoplay loop></audio>
   <div class="main-container">
     <div class="background-list">
       <img id="background-1" src="./assets/background/background-1.jpg" class="button-background selected">
       <img id="background-2" src="./assets/background/background-2.jpg" class="button-background ">
+    </div>
+    <div class="back-button">
+      <a href="https://valentinov8060.github.io/multiple-marker/main-menu-image-tracking.html">
+        <img src="assets/icon/back-icon.svg" alt="Back button" class="back-button-icon">
+      </a>
     </div>
     <div class="model-caption">
     </div>

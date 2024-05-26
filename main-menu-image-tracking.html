@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./assets/icon/title-icon.png" type="image/x-icon">
+  <title>image-tracking-2: girl theme</title>
+
+  <style>
+    .main-menu-container {
+      height: 100vh;
+      background: url('./assets/background/main-menu-background.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+    .main-menu-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+      height: 100%;
+    }
+    .title {
+      color: white;
+      font-size: 1.5em;
+    }
+    .start-button {
+      width: 150px;
+      margin: auto;
+      padding: 10px 20px;
+
+      text-align: center;
+      font-size: 1.5em;
+      color: white;
+
+      cursor: pointer;
+      background-color: rgba(0, 0, 0, 0.7);
+      border: 1px solid rgb(182, 174, 174);
+      border-radius: 10px;
+
+      transition: background-color 0.3s;
+    }
+    .start-button:hover {
+      background-color: rgba(61, 55, 55, 0.9);
+    }
+  </style>
+</head>
+<body>
+  <audio id="backgroundMusic" src="https://valentinov8060.github.io/multiple-marker/image-tracking-2.html" autoplay loop></audio>
+  <div class="main-menu-container">
+    <div class="main-menu-content">
+      <h1 class="title">Augmented Reality</h1>
+      <a href="./image-tracking-2.html">
+        <button class="start-button" type="button">Start</button>
+      </a>
+    </div>
+  </div>
+</body>
+</html>
